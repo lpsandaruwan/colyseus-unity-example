@@ -11,7 +11,7 @@ public class MenuManager : MonoBehaviour
 
     public string GameName
     {
-        get => string.IsNullOrEmpty(gameName)? "my_name": gameName;
+        get => string.IsNullOrEmpty(gameName) ? "my_room" : gameName;
         set => gameName = value;
     }
 
@@ -23,20 +23,17 @@ public class MenuManager : MonoBehaviour
 
     public string Port
     {
-        get => string.IsNullOrEmpty(port)? "2567": port;
+        get => string.IsNullOrEmpty(port) ? "2567" : port;
         set => port = value;
     }
-    
+
     public string Protocol
     {
         get => secureProtocol ? "wss" : "ws";
         set => secureProtocol = Convert.ToBoolean(value);
     }
 
-    public string HostAddress
-    {
-        get => $"{Protocol}://{HostName}:{Port}";
-    }
+    public string HostAddress => $"{Protocol}://{HostName}:{Port}";
 
     public void Play()
     {
